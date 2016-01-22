@@ -1,14 +1,14 @@
 package hammer.learandroid;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.Button;
+
+import com.jakewharton.rxbinding.view.RxView;
 
 /**
  * Created by hammer on 2016/1/19.
@@ -26,16 +26,16 @@ public class MainActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.show();
 
+        LessonOne popViewOne = new LessonOne(this);
+
         btn1 = (Button)findViewById(R.id.button_1);
         btn1.setOnClickListener((view)->{
-
+            popViewOne.show();
         });
-
         btn2 = (Button)findViewById(R.id.button_2);
-        btn2.setOnClickListener(view->{
-
+        RxView.clicks(btn2).subscribe(view->{
+            startActivity(new Intent(this,LessonTwoActivity.class));
         });
-
 
     }
 

@@ -27,6 +27,11 @@
             </intent-filter>
 
         </activity>
+
+        <activity android:name=".LessonTwoActivity"
+            >
+        </activity>
+
     </application>
 
 </manifest>
