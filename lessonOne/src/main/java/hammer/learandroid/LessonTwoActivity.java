@@ -2,6 +2,7 @@ package hammer.learandroid;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -11,9 +12,12 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import com.jakewharton.rxbinding.view.RxView;
+import com.jakewharton.rxbinding.widget.RxCheckedTextView;
+import com.jakewharton.rxbinding.widget.RxCompoundButton;
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.jakewharton.rxbinding.widget.TextViewAfterTextChangeEvent;
 
+import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -35,33 +39,38 @@ public class LessonTwoActivity extends AppCompatActivity{
         setContentView(R.layout.activity_lesson_two);
         edText1 =(EditText)findViewById(R.id.editText_1);
         checkBox1 = (CheckBox)findViewById(R.id.checkBox_1);
+        checkBox1.setChecked(false);
         btn1 = (Button)findViewById(R.id.button_1);
         //开始使用rxandroid绑定
-        // 绑定Button 防止重复点击500s
-        RxView.clicks(btn1).throttleFirst(500,TimeUnit.MILLISECONDS).subscribe(event->{
 
+        // 绑定Button 防止重复点击500s
+        RxView.clicks(btn1).throttleFirst(500, TimeUnit.MILLISECONDS).subscribe(event->{
+            Log.d("Button","点击了Button1次");
         });
-        
-        Func1<OnCheckedChangeListener,Boolean> function = new Func1<OnCheckedChangeListener, Boolean>() {
-            @Override
-            public Boolean call(OnCheckedChangeListener onCheckedChangeListener) {
-                return true;
-            }
-        };
+
         //绑定EditeText编辑器
         RxTextView.afterTextChangeEvents(edText1)
-                .map(new Func1<TextViewAfterTextChangeEvent, Boolean>() {
-            @Override
-            public Boolean call(TextViewAfterTextChangeEvent textViewAfterTextChangeEvent) {
-                return null;
-            }
-        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Boolean>() {
-            @Override
-            public void call(Boolean aBoolean) {
+                .map((textViewAfterTextChangeEvent)-> {
+                        textViewAfterTextChangeEvent.toString();
+                        Log.d("EditText", textViewAfterTextChangeEvent.editable().toString());
+                        // if (TextUtils.isEmpty(textViewAfterTextChangeEvent.editable()))
+                        return TextUtils.isEmpty(textViewAfterTextChangeEvent.editable()) ? false : true;
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(aBoolean ->  {
+                    if (aBoolean)
+                        Log.d("EditText", "获得true，Button可用");
+                    btn1.setEnabled(aBoolean);
+                });
 
-            }
-        });
-
+        //绑定选择器按钮
+     RxCompoundButton.checkedChanges(checkBox1).subscribe(new Action1<Boolean>() {
+                @Override
+                public void call(Boolean aBoolean) {
+                    String value = aBoolean ? "true" : "false";
+                    Log.d("CheckBox", "点击后,现在是" + value);
+                }
+            });
 
 
     }
