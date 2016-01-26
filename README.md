@@ -8,6 +8,6 @@
 正确使用了以下三个空间的rxbinding，CheckBox,EditText,Button，准备学习rxjava的变换功能
 #2016/01/26
 学习了rxjava的变换功能。
-提交第三课，学习AppBarLayout,Tablayout,ToolBar,完成可滑动收缩的导航条（toolbar）
-准备第四课，带图片背景的可滑动的导航条
+提交第三课，学习AppBarLayout,Tablayout,ToolBar,完成可滑动收缩的导航条（toolbar）。
+准备学习第四课，带图片背景的可滑动的导航条
 
