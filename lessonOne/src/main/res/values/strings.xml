@@ -15,4 +15,15 @@
     </string>
     <string name="drawer_open_content">打开DrawerLayout</string>
     <string name="drawer_close_content">关闭DrawerLayout</string>
+    <string name="lesson_three_title">第三课：toolbar滚动 tablayout RecyclerView  </string>
+    <string name="lesson_three_content">第三课内容：使用appbarLayout结合toolbar，tabLayout,RecyceleView实现
+        上滚时，自动隐藏导航栏
+        下滚时，自动出现标题栏
+    </string>
+
+    <string name="lesson_four_title">第四课：toolbar带背景图的滚动 tablayout,CollapsingToolbarLayout,NestedScrollView  </string>
+    <string name="lesson_four_content">第四课内容：使用appbarLayout结合CollapsingToolbarLayout，toolbar，tabLayout,NestedScrollView
+        上滚时，自动隐藏导航栏
+        下滚时，出现带背景图的导航栏
+    </string>
 </resources>

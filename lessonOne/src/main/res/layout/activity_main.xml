@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:content="hammer.learandroid.MainActivity"
     >
 <LinearLayout
     android:layout_width="match_parent"
@@ -28,8 +27,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="第三课：学习android Design Support Lib"
+        android:text="@string/lesson_three_title"
         android:id="@+id/button_3" />
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/lesson_four_title"
+        android:id="@+id/button_4" />
 
+</LinearLayout>
+    <FrameLayout
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@color/pink">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是弹出navigation页"
+            android:textColor="@color/black"
+            />
+    </FrameLayout>
 </android.support.v4.widget.DrawerLayout>
