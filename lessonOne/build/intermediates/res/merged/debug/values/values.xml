@@ -275,9 +275,11 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="app_name">learAndroid</string>
+    <string name="app_name">崔的androidLesson</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="drawer_close_content">关闭DrawerLayout</string>
+    <string name="drawer_open_content">打开DrawerLayout</string>
     <string name="error_field_required">This field is required</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_invalid_email">This email address is invalid</string>
@@ -297,7 +299,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowActionBar">true</item>
+    </style>
+    <style name="AppTheme.WithoutActionBar" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>

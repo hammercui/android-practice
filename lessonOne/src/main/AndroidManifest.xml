@@ -13,6 +13,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
@@ -28,9 +29,12 @@
 
         </activity>
 
-        <activity android:name=".LessonTwoActivity"
-            >
-        </activity>
+        <activity android:name=".LessonTwoActivity"/>
+
+        <activity android:name=".LessonThreeActivity"
+            android:theme="@style/AppTheme.WithoutActionBar"
+            />
+
 
     </application>
 

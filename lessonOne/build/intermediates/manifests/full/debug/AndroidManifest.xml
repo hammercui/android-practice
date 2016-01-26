@@ -32,8 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="hammer.learandroid.LessonTwoActivity" >
-        </activity>
+        <activity android:name="hammer.learandroid.LessonTwoActivity" />
+        <activity
+            android:name="hammer.learandroid.LessonThreeActivity"
+            android:theme="@style/AppTheme.WithoutActionBar" />
     </application>
 
 </manifest>

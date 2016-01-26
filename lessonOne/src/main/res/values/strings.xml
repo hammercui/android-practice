@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">learAndroid</string>
+    <string name="app_name">崔的androidLesson</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -13,4 +13,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="drawer_open_content">打开DrawerLayout</string>
+    <string name="drawer_close_content">关闭DrawerLayout</string>
 </resources>

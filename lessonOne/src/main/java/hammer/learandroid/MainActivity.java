@@ -1,8 +1,11 @@
 package hammer.learandroid;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
    Button btn1;
     Button btn2;
    ActionBar actionBar;
+    ActionBarDrawerToggle drawerToggle;
+    DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -29,14 +34,36 @@ public class MainActivity extends AppCompatActivity {
         LessonOne popViewOne = new LessonOne(this);
 
         btn1 = (Button)findViewById(R.id.button_1);
-        btn1.setOnClickListener((view)->{
+        btn1.setOnClickListener((view) -> {
             popViewOne.show();
         });
         btn2 = (Button)findViewById(R.id.button_2);
-        RxView.clicks(btn2).subscribe(view->{
-            startActivity(new Intent(this,LessonTwoActivity.class));
+        RxView.clicks(btn2).subscribe(view -> {
+            startActivity(new Intent(this, LessonTwoActivity.class));
+        });
+        Button btn3 = (Button)findViewById(R.id.button_3);
+        RxView.clicks(btn3).subscribe(view->{
+            startActivity(new Intent(this,LessonThreeActivity.class));
         });
 
+        //学习DrawerLayout
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
+        drawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.drawer_open_content, R.string.drawer_close_content);
+        drawerLayout.setDrawerListener(drawerToggle);
+
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -54,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (drawerToggle.onOptionsItemSelected(item))
+            return true;
+
         switch (item.getItemId()) {
             case android.R.id.home:
                 return true;
