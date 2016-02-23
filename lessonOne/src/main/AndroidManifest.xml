@@ -16,10 +16,12 @@
 
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="main activity"
             >
             <intent-filter>
@@ -29,13 +31,19 @@
 
         </activity>
 
-        <activity android:name=".lessonView.LessonTwoActivity"/>
+        <activity android:name=".lessonView.LessonTwoActivity"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".lessonView.LessonThreeActivity"
             android:label="@string/lesson_three_title"
             android:theme="@style/AppTheme.WithoutActionBar"
+            android:screenOrientation="portrait"
             />
-
+        <activity android:name=".lessonView.LessonFourActivity"
+            android:label="@string/lesson_four_title"
+            android:theme="@style/AppTheme.WithoutActionBar"
+            android:screenOrientation="portrait"
+            />
 
     </application>
 

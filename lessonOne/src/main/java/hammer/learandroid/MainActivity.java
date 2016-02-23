@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.jakewharton.rxbinding.view.RxView;
 
+import hammer.learandroid.lessonView.LessonFourActivity;
 import hammer.learandroid.lessonView.LessonOne;
 import hammer.learandroid.lessonView.LessonThreeActivity;
 import hammer.learandroid.lessonView.LessonTwoActivity;
@@ -51,8 +52,10 @@ public class MainActivity extends AppCompatActivity {
         });
         Button btn4 = (Button)findViewById(R.id.button_4);
         RxView.clicks(btn4).subscribe(view->{
-
+            startActivity(new Intent(this, LessonFourActivity.class));
         });
+
+
 
         //学习DrawerLayout
         drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);

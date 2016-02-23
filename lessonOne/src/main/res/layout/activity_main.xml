@@ -35,7 +35,12 @@
         android:layout_marginTop="10dp"
         android:text="@string/lesson_four_title"
         android:id="@+id/button_4" />
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/lesson_five_title"
+        android:id="@+id/button_5" />
 </LinearLayout>
     <FrameLayout
         android:layout_width="240dp"
