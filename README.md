@@ -10,4 +10,11 @@
 学习了rxjava的变换功能。
 提交第三课，学习AppBarLayout,Tablayout,ToolBar,完成可滑动收缩的导航条（toolbar）。
 准备学习第四课，带图片背景的可滑动的导航条
+#  2016/05/17
+
+提交lesson five
+学习使用[LoopRotarySwitch](https://github.com/dalong982242260/LoopRotarySwitch)控件，一个旋转木马控件.
+
+
+
 
