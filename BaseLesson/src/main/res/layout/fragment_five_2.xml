@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/colorPrimary">
+        <com.dalong.library.view.LoopRotarySwitchView
+            android:id="@+id/mLoopRotarySwitchView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:gravity="center"
+            app:direction="right">
+            <ImageView
+                android:id="@+id/img_a"
+                android:src="@drawable/plan_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/img_b"
+                android:src="@drawable/plan_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/img_c"
+                android:src="@drawable/plan_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/img_d"
+                android:src="@drawable/plan_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.dalong.library.view.LoopRotarySwitchView>
+    </FrameLayout>
+
+</LinearLayout>
