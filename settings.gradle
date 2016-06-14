@@ -1,1 +1,1 @@
-include ':BaseLesson'
+include ':BaseLesson', ':com.fungame.greendao.generator'

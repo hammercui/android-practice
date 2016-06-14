@@ -44,7 +44,7 @@ public class LessonTwoActivity extends AppCompatActivity{
         btn1 = (Button)findViewById(R.id.button_1);
         //开始使用rxandroid绑定
 
-        //绑定EditeText编辑器,判断驶入是否为空
+        //绑定EditeText编辑器,判断输入是否为空
         Observable<Boolean> editTextEmpty =  RxTextView.afterTextChangeEvents(edText1)
                 .map((textViewAfterTextChangeEvent) -> {
                     textViewAfterTextChangeEvent.toString();

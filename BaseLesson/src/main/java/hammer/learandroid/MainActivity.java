@@ -15,6 +15,7 @@ import com.jakewharton.rxbinding.view.RxView;
 
 import hammer.learandroid.views.LessonFiveAvtivity;
 import hammer.learandroid.views.LessonOne;
+import hammer.learandroid.views.LessonSixActivity;
 import hammer.learandroid.views.LessonThreeActivity;
 import hammer.learandroid.views.LessonTwoActivity;
 
@@ -58,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         Button btn5 = (Button)findViewById(R.id.button_5);
         RxView.clicks(btn5).subscribe(view->{
             startActivity(new Intent(this,LessonFiveAvtivity.class));
+        });
+
+        Button btn6 = (Button)findViewById(R.id.button_6);
+        RxView.clicks(btn6).subscribe(view->{
+            startActivity(new Intent(this,LessonSixActivity.class));
         });
 
         //学习DrawerLayout
