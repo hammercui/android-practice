@@ -1,4 +1,4 @@
-package hammer.learandroid.views.six.adapters;
+package hammer.learandroid.views.six;
 
 import android.content.Context;
 import android.util.Log;

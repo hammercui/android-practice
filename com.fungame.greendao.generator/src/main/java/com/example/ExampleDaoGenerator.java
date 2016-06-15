@@ -37,5 +37,19 @@ public class ExampleDaoGenerator {
         // For example, a property called “creationDate” will become a database column “CREATION_DATE”.
         note.addStringProperty("comment");
         note.addDateProperty("date");
+
+        creatEntity(schema);
+    }
+
+    private static void creatEntity(Schema schema){
+        //创建学生
+        Entity student = schema.addEntity("Student");
+        student.addIdProperty();
+        student.addStringProperty("studentId").notNull();
+        student.addStringProperty("name");
+        student.addIntProperty("sex");
+        student.addStringProperty("address");
+        student.addStringProperty("classes");
+
     }
 }
