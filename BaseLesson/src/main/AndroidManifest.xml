@@ -32,13 +32,19 @@
 
         <activity android:name=".views.LessonTwoActivity"/>
 
+
+
         <activity android:name=".views.LessonThreeActivity"
+            android:label="@string/lesson_four_title"
+            android:theme="@style/AppTheme.WithoutActionBar"
+            />
+        <activity android:name=".views.LessonFourActivity"
             android:label="@string/lesson_three_title"
             android:theme="@style/AppTheme.WithoutActionBar"
-            />
-        <activity android:name=".views.LessonFiveAvtivity"
+            />d:name=".views.LessonFiveAvtivity"
             android:theme="@style/AppTheme.WithoutActionBar"
             />
+
 
     <activity android:name=".views.LessonSixActivity"/>
     </application>

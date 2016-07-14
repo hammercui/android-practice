@@ -69,6 +69,8 @@ public class Five1Fragment extends Fragment {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.textView.setText("数据position:" + position);
+            //将数据保存在itemView的Tag中，以便点击时进行获取
+            holder.itemView.setTag(position);
         }
 
         @Override

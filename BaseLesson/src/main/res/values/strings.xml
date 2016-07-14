@@ -26,4 +26,5 @@
         上滚时，自动隐藏导航栏
         下滚时，出现带背景图的导航栏
     </string>
+    <string name="lesson_7_title">第7课：学习ViewAnimation与PropertyAnimator的区别</string>
 </resources>

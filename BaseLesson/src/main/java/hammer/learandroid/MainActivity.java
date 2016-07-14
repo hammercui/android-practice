@@ -14,7 +14,8 @@ import android.widget.Button;
 import com.jakewharton.rxbinding.view.RxView;
 
 import hammer.learandroid.views.LessonFiveAvtivity;
-import hammer.learandroid.views.LessonOne;
+import hammer.learandroid.views.LessonFourActivity;
+import hammer.learandroid.views.LessonOneActivity;
 import hammer.learandroid.views.LessonSixActivity;
 import hammer.learandroid.views.LessonThreeActivity;
 import hammer.learandroid.views.LessonTwoActivity;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.show();
 
-        LessonOne popViewOne = new LessonOne(this);
+        LessonOneActivity popViewOne = new LessonOneActivity(this);
 
         btn1 = (Button)findViewById(R.id.button_1);
         btn1.setOnClickListener((view) -> {
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
         Button btn4 = (Button)findViewById(R.id.button_4);
         RxView.clicks(btn4).subscribe(view->{
-
+            startActivity(new Intent(this, LessonFourActivity.class));
         });
 
         Button btn5 = (Button)findViewById(R.id.button_5);
