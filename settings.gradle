@@ -1,1 +1,1 @@
-include ':BaseLesson', ':com.fungame.greendao.generator'
+include ':com.fungame.greendao.generator', ':android-best-library', ':app'

@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    //---rxjava依赖包---
+    compile 'io.reactivex:rxandroid:1.1.0'
+    //--rxjava
+    compile 'io.reactivex:rxjava:1.1.0'
+    //--rxbingding 要求 api>= 14
+    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.3.0'
+    //---orm greendao依赖---
+    compile 'org.greenrobot:greendao:2.2.1'
+    //
+}
