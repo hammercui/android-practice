@@ -1,7 +1,8 @@
 package hammer.learandroid.activity;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,56 +12,60 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.hammer.example.DaoMaster;
-import com.hammer.example.DaoSession;
 import com.hammer.example.Note;
-import com.hammer.example.NoteDao;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import hammer.learandroid.MyApplication;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import hammer.learandroid.R;
-import hammer.learandroid.models.dao.NoteDaoMiddle;
-import hammer.learandroid.adapters.ILessonSixActvity;
+import hammer.learandroid.adapters.DaoResponse;
+import hammer.learandroid.dao.Note_dao;
 import hammer.learandroid.adapters.SixAdapter;
+import hammer.learandroid.dao.Note_imp;
 
 /**
  * Created by hammer on 2016/6/13.
  */
-public class LessonSixActivity extends AppCompatActivity implements ILessonSixActvity {
-    private SQLiteDatabase db;
-    private EditText editText;
-    private DaoMaster daoMaster;
-    private DaoSession daoSession;
-    private SQLiteDatabase sqlDB;
-    private NoteDao noteDao;
-    private ListView listView;
+public class LessonSixActivity extends AppCompatActivity {
+
+    @BindView(R.id.editTextNote)
+    EditText editText;
+
+    @BindView(R.id.buttonAdd)
+    Button btnAdd;
+
+    @BindView(R.id.buttonSearch)
+    Button btnSerach;
+
+    @BindView(R.id.listview)
+    ListView listView;
+
+   // private ListView listView;
     private Cursor cursor;
     private SixAdapter sixAdapter;
-    private NoteDaoMiddle noteDaoMiddle;
+    private Note_dao noteDao;
+    private  ProgressDialog progressDialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_six);
-        daoSession = MyApplication.getIns().getDaoSession(this);
-        noteDaoMiddle = new NoteDaoMiddle(this,daoSession);
+        ButterKnife.bind(this);
+        noteDao = new Note_imp();
 
-        editText = (EditText)this.findViewById(R.id.editTextNote);
-        Button btnAdd = (Button)this.findViewById(R.id.buttonAdd);
         btnAdd.setOnClickListener(view->{
             addNote();
         });
-        Button btnSerach = (Button)this.findViewById(R.id.buttonSearch);
+
         btnSerach.setOnClickListener(view->{
             search(editText.getText().toString());
         });
 
-
-        listView = (ListView)this.findViewById(R.id.listview);
         //生成适配器
-        sixAdapter = new SixAdapter(this,noteDaoMiddle.notes);
+        sixAdapter = new SixAdapter(this,noteDao.getAllNotes());
         listView.setAdapter(sixAdapter);
         search(null);
     }
@@ -78,18 +83,37 @@ public class LessonSixActivity extends AppCompatActivity implements ILessonSixAc
        String comment = "Added on " + df.format(new Date());
        // 插入操作，简单到只要你创建一个 Java 对象
        Note note = new Note(null, noteText, comment, new Date());
-       noteDaoMiddle.add(note);
+       progressDialog = ProgressDialog.show(this,"添加中","努力添加中，请稍等",true,false);
+       noteDao.add(note, new DaoResponse<List<Note>>() {
+           @Override
+           public void onSuccess(List<Note> notes) {
+               onUpdateList(notes);
+               progressDialog.dismiss();
+           }
+           @Override
+           public void onFial(String msg) {
+           }
+       });
 
    }
 
     private void search(String title) {
-       noteDaoMiddle.search(title);
+        progressDialog = ProgressDialog.show(this,"查询中","努力查询中，请稍等",true,false);
+       noteDao.search(title, new DaoResponse<List<Note>>() {
+           @Override
+           public void onSuccess(List<Note> notes) {
+               progressDialog.dismiss();
+               onUpdateList(notes);
+           }
+           @Override
+           public void onFial(String msg) {
+
+           }
+       });
     }
 
 
-
-    @Override
-    public void onUpdateList(ArrayList<Note> notes) {
+    public void onUpdateList(List<Note> notes) {
         sixAdapter.setData(notes);
         sixAdapter.notifyDataSetChanged();
     }

@@ -1,6 +1,29 @@
 > learnAndroid
 > 主要记录我的android学习过程，包括源码及心得
 
+# 2017/07/28  更新
+
+重构了目录结构，按照如下的目录结构来划分功能
++ activity
++ adapters
++ dagger2
++ ado
++ entity
++ fragment
++ util
++ widget
+
+分离了常用的依赖库，迁移到android-best-library这个module
+
+`app`  module  
+* 新增butterknife库，解决findviewById问题。
+* LessonSixActivity做了典型的dagger2+butterknife+mvc+greenDao的实践。
+
+
+
+
+
+
 # lesson 1 View Window DocerView学习
 2016/01/21
 
@@ -10,7 +33,7 @@
 2016/01/21
 
 提交第二课，学习如何使用rxbinding,学会函数式响应式编程
-#  lesson 2
+
 2016/01/24
 第二课的补充，正确使用了以下三个空间的rxbinding，CheckBox,EditText,Button，准备学习rxjava的变换功能
 # lesson 3  toolbar

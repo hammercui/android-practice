@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.hammer.example.Note;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import hammer.learandroid.R;
 import hammer.learandroid.util.LogUtil;
@@ -19,15 +20,15 @@ import hammer.learandroid.util.LogUtil;
  * Created by hammer on 2016/6/14.
  */
 public class SixAdapter extends BaseAdapter{
-    private ArrayList<Note> noteLists;
+    private List<Note> noteLists;
     private LayoutInflater layoutInflater;
 
-    public SixAdapter(Context context,ArrayList<Note> lists){
+    public SixAdapter(Context context,List<Note> lists){
         this.layoutInflater = LayoutInflater.from(context);
         noteLists = lists;
     }
 
-    public void setData(ArrayList<Note> lists){
+    public void setData(List<Note> lists){
         noteLists = lists;
     }
 
