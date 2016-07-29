@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.hammer.example.DaoMaster;
 import com.hammer.example.DaoSession;
+import com.hammer.example.HMROpenHelper;
 
 import javax.inject.Singleton;
 
@@ -34,8 +35,16 @@ public class ApplicationModule {
     @Singleton
     @Provides
     public SQLiteDatabase provideSQLiteDatabase(MyApplication application){
-        DaoMaster.OpenHelper helper = new DaoMaster.DevOpenHelper(application, "zlot-db", null);
+//        PackageInfo packageInfo = application.getAppInfo();
+//        String assetsName = "lesson.db";
+//        String dbName = "xue.db";
+//        String DATABASE_PATH = packageInfo.applicationInfo.dataDir+"/database";
+//        SqliteManager manager = new SqliteManager();
+//        manager.copyAssetsDbToApkDb(application,assetsName,DATABASE_PATH,dbName,false);
+//
+        HMROpenHelper helper = new HMROpenHelper(application, "xue_old.db", null);
         SQLiteDatabase sqlDB = helper.getWritableDatabase();
+       // SQLiteDatabase sqlDB = SQLiteDatabase.openOrCreateDatabase(DATABASE_PATH+"/"+dbName,null);
         return  sqlDB;
     }
     @Singleton

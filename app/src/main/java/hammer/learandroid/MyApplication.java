@@ -2,6 +2,8 @@ package hammer.learandroid;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.hammer.example.DaoMaster;
@@ -48,31 +50,24 @@ public class MyApplication extends Application {
         applicationComponent.inject(this);
     }
 
-//    public  DaoMaster getDaoMaster(Context context){
-//        if (daoMaster == null){
-//            daoMaster = new DaoMaster(getSQLDB(context));
-//        }
-//        return daoMaster;
-//    }
-//
-//    public SQLiteDatabase getSQLDB(Context context){
-//        if (sqlDB == null){
-//            DaoMaster.OpenHelper helper = new DaoMaster.DevOpenHelper(context, "zlot-db", null);
-//            sqlDB = helper.getWritableDatabase();
-//        }
-//        return  sqlDB;
-//    }
-//
-//    public DaoSession getDaoSession(Context context){
-//        if (daoSession == null)
-//        {
-//            if (daoMaster == null)
-//            {
-//                daoMaster = getDaoMaster(context);
-//            }
-//            daoSession = daoMaster.newSession();
-//        }
-//        return daoSession;
-//    }
+
+    /**
+     * 获得app 包信息
+     * @return
+     */
+    public PackageInfo getAppInfo(){
+        PackageManager packageManager = getPackageManager();
+        PackageInfo packInfo = null;
+        // getPackageName()是你当前类的包名，0代表是获取版本信息
+        try
+        {
+            packInfo = packageManager.getPackageInfo(getPackageName(), 0);
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return packInfo;
+    }
 
 }

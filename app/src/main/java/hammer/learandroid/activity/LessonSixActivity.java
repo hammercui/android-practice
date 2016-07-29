@@ -43,8 +43,6 @@ public class LessonSixActivity extends AppCompatActivity {
 
     @BindView(R.id.listview)
     ListView listView;
-
-   // private ListView listView;
     private Cursor cursor;
     private SixAdapter sixAdapter;
     private Note_dao noteDao;
