@@ -13,7 +13,7 @@ import hammer.learandroid.R;
 /**弹出页面1
  * Created by hammer on 2016/1/19.
  */
-    public class LessonOneActivity {
+    public class LessonOneView {
     /**
      * 上下文，存储activity信息
      */
@@ -27,7 +27,7 @@ import hammer.learandroid.R;
          * 构造函数
          * @param context
          */
-        public LessonOneActivity(Context context)
+        public LessonOneView(Context context)
         {
             //获得一个xml布局加载器
             LayoutInflater layoutInflater = LayoutInflater.from(context);

@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.support.design.widget.TabLayout;
 
 
+import com.hammer.example.Lesson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,7 @@ import hammer.learandroid.fragment.Five2Fragment;
 /**老崔的android学习第三课，学习design support library库的使用
  * Created by hammer on 2016/1/25.
  */
-public class LessonFiveAvtivity extends AppCompatActivity {
+public class LessonFiveAvtivity extends BaseActivity {
     ActionBar actionBar;
     CoordinatorLayout rootLayout;
     Toolbar toolbar;
@@ -35,6 +37,7 @@ public class LessonFiveAvtivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        lesson = (Lesson) this.getIntent().getSerializableExtra("data");
         setContentView(R.layout.activity_lesson_five);
 
         //使用CoordinatorLayout
@@ -53,6 +56,7 @@ public class LessonFiveAvtivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        toolbar.setTitle(lesson.getName());
         drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
         drawerToggle =  new ActionBarDrawerToggle(LessonFiveAvtivity.this,drawerLayout,R.string.drawer_open_content,R.string.drawer_close_content);
         //设置标题选项卡

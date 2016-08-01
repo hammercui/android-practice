@@ -9,18 +9,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 
+import com.hammer.example.Lesson;
+
 import hammer.learandroid.R;
 
 /**第四课，创建带背景的滚动toolbar,可隐藏小时
  * Created by hammer on 2016/1/26.
  */
-public class LessonFourActivity extends AppCompatActivity {
+public class LessonFourActivity extends BaseActivity {
     CardView cardView;
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        lesson = (Lesson) this.getIntent().getSerializableExtra("data");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_lesson_four);
         initToolBar();
@@ -32,6 +35,7 @@ public class LessonFourActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        toolbar.setTitle(lesson.getName());
 
         //设置CollapasingToolbarv标题
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.collapsingtoolbar);

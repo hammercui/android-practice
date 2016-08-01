@@ -1,5 +1,6 @@
 package hammer.learandroid.dagger2;
 
+import android.content.pm.PackageInfo;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.hammer.example.DaoMaster;
@@ -11,6 +12,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import hammer.learandroid.MyApplication;
+import hammer.learandroid.dao.SqliteManager;
 
 /**
  * 提供application生命周期的对象
@@ -35,16 +37,16 @@ public class ApplicationModule {
     @Singleton
     @Provides
     public SQLiteDatabase provideSQLiteDatabase(MyApplication application){
-//        PackageInfo packageInfo = application.getAppInfo();
-//        String assetsName = "lesson.db";
-//        String dbName = "xue.db";
-//        String DATABASE_PATH = packageInfo.applicationInfo.dataDir+"/database";
-//        SqliteManager manager = new SqliteManager();
-//        manager.copyAssetsDbToApkDb(application,assetsName,DATABASE_PATH,dbName,false);
-//
-        HMROpenHelper helper = new HMROpenHelper(application, "xue_old.db", null);
+        PackageInfo packageInfo = application.getAppInfo();
+        String assetsName = "xue_old.db";
+        String dbName = "xue_old.db";
+        String DATABASE_PATH = packageInfo.applicationInfo.dataDir+"/databases";
+        //拷贝assets的db文件
+        SqliteManager manager = new SqliteManager();
+        manager.copyAssetsDbToApkDb(application,assetsName,DATABASE_PATH,dbName,false);
+
+        HMROpenHelper helper = new HMROpenHelper(application, dbName, null);
         SQLiteDatabase sqlDB = helper.getWritableDatabase();
-       // SQLiteDatabase sqlDB = SQLiteDatabase.openOrCreateDatabase(DATABASE_PATH+"/"+dbName,null);
         return  sqlDB;
     }
     @Singleton

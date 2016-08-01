@@ -27,7 +27,7 @@ public class SqliteManager {
         }
         //database完整路径
         String databaseFileName = apkDbPath + "/" +dbName;
-        File dbFile = new File(databaseFileName);
+       // File dbFile = new File(databaseFileName);
         b = isDbFileExists(new File(databaseFileName),refresh);
         //不存在，如要覆盖 ,后期考虑加密
         if (!b){
@@ -41,6 +41,7 @@ public class SqliteManager {
                 }
                 fos.flush();
                 fos.close();
+                LogUtil.Debug(databaseFileName+"数据库拷贝成功");
             }
             catch (Exception e){
                 LogUtil.Debug("数据库拷贝："+e.toString());

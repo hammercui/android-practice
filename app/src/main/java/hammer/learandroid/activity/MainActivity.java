@@ -7,69 +7,116 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 
-import com.jakewharton.rxbinding.view.RxView;
+import com.hammer.example.Lesson;
 
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import hammer.learandroid.R;
+import hammer.learandroid.adapters.DaoResponse;
+import hammer.learandroid.adapters.MainRecycleAdapter;
+import hammer.learandroid.dao.Lesson_Dao;
+import hammer.learandroid.dao.Lesson_Imp;
+import hammer.learandroid.util.LogUtil;
+import hammer.learandroid.widget.DividerItem;
 
 /**
  * Created by hammer on 2016/1/19.
  */
-public class MainActivity extends AppCompatActivity {
-   Button btn1;
-    Button btn2;
-   ActionBar actionBar;
+public class MainActivity extends BaseActivity {
+
+
+    ActionBar actionBar;
     ActionBarDrawerToggle drawerToggle;
+
+    @BindView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
+
+
+
+    @BindView(R.id.recycleview_main)
+    public RecyclerView recyclerView;
+
+    Lesson_Dao lesson_dao;
+    List<Lesson> lessons;
+
+    Class<?>[] classes = {
+        LessonOneView.class,
+            LessonTwoActivity.class,
+            LessonThreeActivity.class,
+            LessonFourActivity.class,
+            LessonFiveAvtivity.class,
+            LessonSixActivity.class,
+            Lesson7Activity.class
+    }  ;
+
+    private LessonOneView lessonOneView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        lesson_dao = new Lesson_Imp();
+        lessonOneView = new LessonOneView(this);
+        lesson_dao.searchAll(new DaoResponse<List<Lesson>>() {
+            @Override
+            public void onSuccess(List<Lesson> lessonList) {
+                lessons = lessonList;
+                initView();
+            }
+
+            @Override
+            public void onFial(String msg) {
+                LogUtil.Debug("lesson查询出错");
+            }
+        });
 
         actionBar = getSupportActionBar();
         actionBar.show();
-
-        LessonOneActivity popViewOne = new LessonOneActivity(this);
-
-        btn1 = (Button)findViewById(R.id.button_1);
-        btn1.setOnClickListener((view) -> {
-            popViewOne.show();
-        });
-        btn2 = (Button)findViewById(R.id.button_2);
-        RxView.clicks(btn2).subscribe(view -> {
-            startActivity(new Intent(this, LessonTwoActivity.class));
-        });
-        Button btn3 = (Button)findViewById(R.id.button_3);
-        RxView.clicks(btn3).subscribe(view->{
-            startActivity(new Intent(this,LessonThreeActivity.class));
-        });
-        Button btn4 = (Button)findViewById(R.id.button_4);
-        RxView.clicks(btn4).subscribe(view->{
-            startActivity(new Intent(this, LessonFourActivity.class));
-        });
-
-        Button btn5 = (Button)findViewById(R.id.button_5);
-        RxView.clicks(btn5).subscribe(view->{
-            startActivity(new Intent(this,LessonFiveAvtivity.class));
-        });
-
-        Button btn6 = (Button)findViewById(R.id.button_6);
-        RxView.clicks(btn6).subscribe(view->{
-            startActivity(new Intent(this,LessonSixActivity.class));
-        });
+        actionBar.setTitle("android课程");
 
         //学习DrawerLayout
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
         drawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.drawer_open_content, R.string.drawer_close_content);
         drawerLayout.setDrawerListener(drawerToggle);
 
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
+
+    public void initView(){
+        if (lessons == null)
+            return;
+
+        //创建recycleview
+        //线性布局有个问题，不能在column中填充满，所以采用grid布局，每行就1列
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1,GridLayoutManager.VERTICAL,false));
+        MainRecycleAdapter adapter = new MainRecycleAdapter(this,lessons);
+        recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new DividerItem(this,LinearLayoutManager.VERTICAL));
+        adapter.addRVItemClickListener((v,position)->{
+           // LogUtil.Debug("点击了postion:"+position);
+            if (position == 0)
+            {
+                lessonOneView.show();
+                return;
+            }
+            Intent intent = new Intent(this,classes[position]);
+            intent.putExtra("data",lessons.get(position));
+            startActivity(intent);
+
+        });
+
+    }
+
     @Override
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);

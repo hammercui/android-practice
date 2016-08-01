@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.hammer.example.Lesson;
 import com.jakewharton.rxbinding.view.RxView;
 
 import java.util.concurrent.TimeUnit;
@@ -31,7 +32,7 @@ import hammer.learandroid.util.LogUtil;
 /**老崔的android学习第三课，学习design support library库的使用
  * Created by hammer on 2016/1/25.
  */
-public class LessonThreeActivity extends AppCompatActivity {
+public class LessonThreeActivity extends BaseActivity {
     ActionBar actionBar;
     CoordinatorLayout rootLayout;
     Toolbar toolbar;
@@ -41,6 +42,8 @@ public class LessonThreeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        lesson = (Lesson) this.getIntent().getSerializableExtra("data");
+
         setContentView(R.layout.activity_lesson_three);
 
         //使用CoordinatorLayout
@@ -68,6 +71,7 @@ public class LessonThreeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        toolbar.setTitle(lesson.getName());
         drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
         drawerToggle =  new ActionBarDrawerToggle(LessonThreeActivity.this,drawerLayout,R.string.drawer_open_content,R.string.drawer_close_content);
         //设置标题选项卡

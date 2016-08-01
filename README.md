@@ -1,7 +1,17 @@
 > learnAndroid
 > 主要记录我的android学习过程，包括源码及心得
 
-# 2017/07/28  更新
+# 2016/08/01  更新
+
+增加greenDao的assets目录拷贝，即读取外部db文件功能
+增加greenDao数据库的升级功能，保留数据
+
+重构mainActiity,由点击button跳转，改为recycleview
+数据来源于sqlite数据库。
+
+
+
+# 2016/07/28  更新
 
 重构了目录结构，按照如下的目录结构来划分功能
 + activity
