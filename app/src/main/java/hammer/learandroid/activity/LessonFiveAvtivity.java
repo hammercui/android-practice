@@ -56,7 +56,8 @@ public class LessonFiveAvtivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        toolbar.setTitle(lesson.getName());
+        getSupportActionBar().setTitle(lesson.getName());
+
         drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
         drawerToggle =  new ActionBarDrawerToggle(LessonFiveAvtivity.this,drawerLayout,R.string.drawer_open_content,R.string.drawer_close_content);
         //设置标题选项卡
@@ -72,7 +73,7 @@ public class LessonFiveAvtivity extends BaseActivity {
     }
 
 
-    public class MyTabFragmentAdapter extends FragmentStatePagerAdapter{
+    private class MyTabFragmentAdapter extends FragmentStatePagerAdapter{
         private List<Fragment> mFragments;
         private String tabTitles[] = new String[]{"recycle试图","旋转木马试图"};
 

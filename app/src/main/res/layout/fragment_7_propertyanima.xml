@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="详解：">
+
+        </TextView>
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通过改变控件某一属性值来做动画的,
+        假设我们将一个按钮从左上角利用补间动画将其移动到右下角，在移动过程中和移动后，这个按钮都是不会响应点击事件的。这是为什么呢？因为补间动画仅仅转变的是控件的显示位置而已，并没有改变控件本身的值。View Animation 的动画实现是通过其 Parent View 实现的，在 View 被 drawn 时 Parents View 改变它的绘制参数，这样虽然 View 的大小或旋转角度等改变了，但 View 的实际属性没变，所以有效区域还是应用动画之前的区域；我们看到的效果仅仅是系统作用在按钮上的显示效果，利用动画把按钮从原来的位置移到了右下角，但按钮内部的任何值是没有变化的，所以按钮所捕捉的点击区域仍是原来的点击区域"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="start "/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cancel 动画"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="set动画合集"/>
+
+        <View
+            android:id="@+id/view_target"
+            android:background="@color/pink"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+        </View>
+
+    </LinearLayout>
+</ScrollView>

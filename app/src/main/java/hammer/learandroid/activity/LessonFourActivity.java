@@ -35,11 +35,10 @@ public class LessonFourActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        toolbar.setTitle(lesson.getName());
 
         //设置CollapasingToolbarv标题
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.collapsingtoolbar);
-        collapsingToolbarLayout.setTitle("我是可滚动的，嘿嘿");
+        collapsingToolbarLayout.setTitle(lesson.getName());
     }
 
     /**

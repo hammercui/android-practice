@@ -43,7 +43,7 @@ public class ApplicationModule {
         String DATABASE_PATH = packageInfo.applicationInfo.dataDir+"/databases";
         //拷贝assets的db文件
         SqliteManager manager = new SqliteManager();
-        manager.copyAssetsDbToApkDb(application,assetsName,DATABASE_PATH,dbName,false);
+        manager.copyAssetsDbToApkDb(application,assetsName,DATABASE_PATH,dbName,true);
 
         HMROpenHelper helper = new HMROpenHelper(application, dbName, null);
         SQLiteDatabase sqlDB = helper.getWritableDatabase();

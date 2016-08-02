@@ -31,17 +31,17 @@
         <activity android:name=".activity.LessonTwoActivity"/>
 
         <activity android:name=".activity.LessonThreeActivity"
-            android:label="@string/lesson_four_title"
             android:theme="@style/AppTheme.WithoutActionBar"
             />
         <activity android:name=".activity.LessonFourActivity"
-            android:label="@string/lesson_three_title"
             android:theme="@style/AppTheme.WithoutActionBar"
             />
         <activity android:name=".activity.LessonFiveAvtivity"
             android:theme="@style/AppTheme.WithoutActionBar"
             />
         <activity android:name=".activity.LessonSixActivity"/>
+        <activity android:name=".activity.Lesson7Activity"
+            android:theme="@style/AppTheme.WithoutActionBar"/>
     </application>
 
 </manifest>

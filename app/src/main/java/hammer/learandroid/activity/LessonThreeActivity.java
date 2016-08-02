@@ -71,7 +71,7 @@ public class LessonThreeActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        toolbar.setTitle(lesson.getName());
+        getSupportActionBar().setTitle(lesson.getName());
         drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
         drawerToggle =  new ActionBarDrawerToggle(LessonThreeActivity.this,drawerLayout,R.string.drawer_open_content,R.string.drawer_close_content);
         //设置标题选项卡
