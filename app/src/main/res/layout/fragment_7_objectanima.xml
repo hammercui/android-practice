@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="详解：">
+
+        </TextView>
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="前面我们讲了 ofInt()和 ofFloat()来定义动画，但 ofInt()只能传入 Integer 类型的值，而 ofFloat（）则只能传入 Float 类型的值。那如果我们需要操作其它类型的变量要怎么办呢？其实 ValueAnimator 还有一个函数 ofObject(),可以传进去任何类型的变量"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="start "/>
+            <TextView
+                android:id="@+id/textview_anima"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="a"/>
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cancel 动画"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_startPoint"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="start point "/>
+            <Button
+                android:id="@+id/btn_cancelPoint"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cancel 动画"/>
+
+        </RelativeLayout>
+
+        <hammer.learandroid.fragment.MyPointView
+            android:id="@+id/myPointView"
+            android:background="@color/pink"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            />
+    </LinearLayout>
+</ScrollView>
