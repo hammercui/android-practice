@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.fungame.hammer.android_best_practice.DesignButton
+        android:id="@+id/designbutton_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:designbt_background="@drawable/react_round_read"
+        app:designbt_src="@drawable/ic_arrow_back_24pt">
+
+    </com.fungame.hammer.android_best_practice.DesignButton>
+
+
+    <ImageView
+        android:id="@+id/button_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/react_round_read"
+        android:src="@drawable/ic_arrow_back_24pt"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:src="@drawable/react_round_black"/>
+</LinearLayout>

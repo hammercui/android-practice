@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="E:\androidSpace\android-lesson\app\build\intermediates\exploded-aar\android-lesson\android-best-library\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ffcf5b58975ad47799a3417aef74b47556722a93">
+        <dex dex="E:\androidSpace\android-lesson\app\build\intermediates\pre-dexed\debug\android-lesson-android-best-library-unspecified_75212242d499559b5f8955eb279ca8a4da4e3127.jar" />
+    </item>
+
+</items>

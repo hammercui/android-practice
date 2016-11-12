@@ -22,6 +22,10 @@
 
         <activity android:name=".activity.MainActivity"
             >
+
+        </activity>
+
+        <activity android:name="com.fungame.hammer.android_best_practice.UIActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
