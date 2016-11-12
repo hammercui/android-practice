@@ -24,4 +24,5 @@ public interface ApplicationComponent {
     MyApplication getMyApplication();
     //注入依赖
     MyApplication inject(MyApplication myApplication);
+
 }

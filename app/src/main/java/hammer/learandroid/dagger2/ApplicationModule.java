@@ -49,6 +49,7 @@ public class ApplicationModule {
         SQLiteDatabase sqlDB = helper.getWritableDatabase();
         return  sqlDB;
     }
+
     @Singleton
     @Provides
     public DaoMaster provideDaoMaster(SQLiteDatabase sqLiteDatabase){
