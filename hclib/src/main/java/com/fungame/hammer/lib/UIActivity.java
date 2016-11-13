@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.fungame.hammer.lib.widget.DesignButton;
 import com.fungame.hammer.lib.widget.DesignCheckBox;
 import com.fungame.hammer.lib.widget.DesignCheckListener;
+import com.fungame.hammer.lib.widget.MosaicView;
 
 /**
  * Created by hammer on 2016/11/12.
@@ -47,9 +49,13 @@ public class UIActivity extends BaseActivity {
             @Override
             public void onChecked(int id) {
                 Log.d("测试","选中了："+id);
-
             }
         },1);
+
+
+        LinearLayout linearLayout = (LinearLayout) this.findViewById(R.id.linerlayout);
+        MosaicView mosaicView = new MosaicView(this,768,1024);
+        linearLayout.addView(mosaicView);
 
 
     }

@@ -39,21 +39,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\androidSpace\android-lesson\app\build\intermediates\exploded-aar\com.jakewharton.rxbinding\rxbinding-appcompat-v7\0.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.2"
-        sha1="c2ee7a8a35064b507c1f4576034cdea474561bcd">
-        <dex dex="E:\androidSpace\android-lesson\app\build\intermediates\pre-dexed\debug\com.jakewharton.rxbinding-rxbinding-appcompat-v7-0.3.0_f1eea3b0b5e0a838a8c129ba96b427932f66a507.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\androidSpace\android-lesson\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.2"
         sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
         <dex dex="E:\androidSpace\android-lesson\app\build\intermediates\pre-dexed\debug\internal_impl-23.3.0_9bf37a33b92993a804b28bf6865ad9b13f01cce0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidSpace\android-lesson\app\build\intermediates\exploded-aar\com.jakewharton.rxbinding\rxbinding-appcompat-v7\0.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="c2ee7a8a35064b507c1f4576034cdea474561bcd">
+        <dex dex="E:\androidSpace\android-lesson\app\build\intermediates\pre-dexed\debug\com.jakewharton.rxbinding-rxbinding-appcompat-v7-0.3.0_f1eea3b0b5e0a838a8c129ba96b427932f66a507.jar" />
     </item>
     <item
         is-multidex="false"
@@ -97,7 +97,7 @@
         jumboMode="false"
         optimize="true"
         revision="23.0.2"
-        sha1="82a3d8c5c31ad47c923ce74314ff5b44e1b2702a">
+        sha1="30067b43cd8e35b3b2aefc6212fcfe8f62983e10">
         <dex dex="E:\androidSpace\android-lesson\app\build\intermediates\pre-dexed\debug\android-lesson-hclib-unspecified_77aec7eeefada940ee065ca01e0fef1c5b5b3b74.jar" />
     </item>
     <item
@@ -138,21 +138,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\androidSpace\android-lesson\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.2"
-        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="E:\androidSpace\android-lesson\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.3.0_cbeb81791cd13cb5a89fdfb0a49e395f91f56ba7.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\hammer\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.2"
         sha1="6975da39a7040257bd51d21a231b76c915872d38">
         <dex dex="E:\androidSpace\android-lesson\app\build\intermediates\pre-dexed\debug\javax.inject-1_7171a432c0aa749f6089741b35542e2face23136.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidSpace\android-lesson\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="E:\androidSpace\android-lesson\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.3.0_cbeb81791cd13cb5a89fdfb0a49e395f91f56ba7.jar" />
     </item>
     <item
         is-multidex="false"
