@@ -1,1 +1,1 @@
-include ':com.fungame.greendao.generator', ':android-best-library', ':app'
+include ':com.fungame.greendao.generator', ':hclib', ':app'

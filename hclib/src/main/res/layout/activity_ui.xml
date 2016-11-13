@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/react_round_black"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/line_white"/>
+
+        <com.fungame.hammer.lib.widget.DesignCheckBox
+            android:id="@+id/designchecckbox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <com.fungame.hammer.lib.widget.DesignButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:designbt_src="@drawable/ic_arrow_back_24pt"/>
+
+            <com.fungame.hammer.lib.widget.DesignButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:designbt_src="@drawable/ic_arrow_back_24pt"/>
+
+            <com.fungame.hammer.lib.widget.DesignButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:designbt_src="@drawable/ic_arrow_back_24pt"/>
+
+        </com.fungame.hammer.lib.widget.DesignCheckBox>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

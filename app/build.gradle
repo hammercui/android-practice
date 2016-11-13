@@ -47,6 +47,6 @@ dependencies {
     apt 'com.google.dagger:dagger-compiler:2.0.2'
     compile 'com.google.dagger:dagger:2.0.2'
     //---推荐的第三方依赖---
-    compile project(':android-best-library')
+    compile project(':hclib')
 
 }
